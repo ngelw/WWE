@@ -1,0 +1,20 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    color: red;
+    margin-top: 20px;
+}
+
+.nav-pills {
+    --bs-nav-link-color: red;
+    --bs-nav-pills-link-active-color: black;
+    --bs-nav-pills-link-active-bg: red;
+}
+
+.nav-item button {
+    border-radius: 10px;
+}

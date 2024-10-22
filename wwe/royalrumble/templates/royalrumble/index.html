@@ -1,0 +1,31 @@
+{% extends "royalrumble/base.html" %}
+{% load static  %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock style %}
+{% block content %}
+    <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true">Home</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">Profile</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">Contact</button>
+        </li>
+      </ul>
+    <h1>WWE Royal Rumble 2009 Players</h1>
+    
+    <ul class="list-unstyled">
+      {% for player in players %}
+        <li class="media mb-3">
+          <img src="{{ player.image_url }}" class="mr-3" alt="{{ player.name }}" style="width: 100px; height: auto;">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">{{ player.name }}</h5>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endblock content %}
+
