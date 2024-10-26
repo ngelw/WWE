@@ -7,15 +7,16 @@
     
     <h1>WWE Royal Rumble 2009 Players</h1>
     
-    <ul class="list-unstyled">
-      {% for player in players %}
-        <li class="media mb-3">
-          <img src="{{ player.image_url }}" class="mr-3" alt="{{ player.name }}" style="width: 100px; height: auto;">
+      {% for wrestler in wrestler %}
+      
+          <h1>hi</h1>
+          <img src="{{ wrestler.url }}" class="mr-3" alt="{{ wrestler.name }}" style="width: 100px; height: auto;">
           <div class="media-body">
-            <h5 class="mt-0 mb-1">{{ player.name }}</h5>
+            <h5 class="mt-0 mb-1">{{ wrestler.name }}</h5>
           </div>
-        </li>
-      {% endfor %}
-    </ul>
+    {% endfor %}
+  
+
+  
   {% endblock content %}
 

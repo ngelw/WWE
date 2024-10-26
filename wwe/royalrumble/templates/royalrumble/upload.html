@@ -1,5 +1,8 @@
 {% extends "royalrumble/base.html" %}
 {% block content %}
+{% for message in messages %}
+<h1>{{message}}</h1>
+{% endfor %}
 <div class="container mt-5">
     <h2> Wrestler Information</h2>
     <form method="POST" enctype="multipart/form-data">

@@ -1,10 +1,12 @@
 import requests
+from django.contrib import messages
 from bs4 import BeautifulSoup
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 # Create your views here.
 def home(request):
     wrestler = Wrestlers.objects.all()
+    
     context = {
         'wrestler':wrestler,
     }
@@ -15,10 +17,14 @@ def upload(request):
         weight = request.POST.get('weight')
         height = request.POST.get('height')
         signature = request.POST.get('signature')
-        image = request.POST.get('image')
+        image = request.FILES.get('image')
 
         wrestler = Wrestlers(name=name, weight=weight, height=height, signature=signature, image=image)
         wrestler.save()
+        messages.success(request, "Wrestler information uploaded successfully, You wanna upload another? :)!")
+        return redirect(upload)
+
+
     
 
     return render(request, 'royalrumble/upload.html')
