@@ -11,6 +11,8 @@ def home(request):
         'wrestler':wrestler,
     }
     return render(request, 'royalrumble/index.html',context)
+def signup(request):
+    return render(request,'royalrumble/signup.html')
 def upload(request):
     if request.method=='POST':
         name = request.POST.get('name')

@@ -124,7 +124,6 @@ STATICFILES_DIRS = [BASE_DIR / 'royalrumble/static']
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
+MEDIA_ROOT = BASE_DIR / 'royalrumble/static/media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

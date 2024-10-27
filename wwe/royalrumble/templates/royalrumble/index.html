@@ -8,11 +8,16 @@
     <h1>WWE Royal Rumble 2009 Players</h1>
     
       {% for wrestler in wrestler %}
-      
-          <h1>hi</h1>
-          <img src="{{ wrestler.image.url }}" class="mr-3" alt="{{ wrestler.name }}" style="width: 100px; height: auto;">
+                <img src="{{ wrestler.image.url }}" class="mr-3" alt="{{ wrestler.name }}" style="width: 300px; height: auto;">
+          <div class="stats" id ='stats'>
+          <p>{{wrestler.name}}</h2>
+          <p>{{wrestler.weight}} Lbs</p>
+          <p>{{wrestler.height}} Ft</p>
+          <p>{{wrestler.signature}} Ft</p>
+          </div>
+
+
           <div class="media-body">
-            <h5 class="mt-0 mb-1">{{ wrestler.name }}</h5>
           </div>
     {% endfor %}
   

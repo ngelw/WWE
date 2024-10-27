@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),
     path('upload/',upload,name='upload'),
+    path('signin/',signup,name='upload'),
 ]
 
 if settings.DEBUG:

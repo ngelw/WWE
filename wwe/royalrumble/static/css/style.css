@@ -18,3 +18,7 @@ h1 {
 .nav-item button {
     border-radius: 10px;
 }
+
+div {
+    color: red;
+}
