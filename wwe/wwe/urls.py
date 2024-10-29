@@ -24,9 +24,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home),
+    path('',home,name='home'),
     path('upload/',upload,name='upload'),
-    path('signin/',signup,name='upload'),
+    path('signin/',signup,name='signup'),
+    path('login/',login,name='login'),
+    path('logout/',u_logout,name='logout'),
+    path('edit/<int:pk>',edit,name='edit'),
 ]
 
 if settings.DEBUG:

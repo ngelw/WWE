@@ -1,24 +1,28 @@
 {% extends "royalrumble/base.html" %}
 {% load static  %}
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/new.css' %}">
+<style>
+
+</style>
 {% endblock style %}
 {% block content %}
     
     <h1>WWE Royal Rumble 2009 Players</h1>
     
       {% for wrestler in wrestler %}
-                <img src="{{ wrestler.image.url }}" class="mr-3" alt="{{ wrestler.name }}" style="width: 300px; height: auto;">
-          <div class="stats" id ='stats'>
+         <img src="{{ wrestler.image.url }}" class="mr-3" alt="{{ wrestler.name }}" style="width: 300px; height: auto;">
           <p>{{wrestler.name}}</h2>
           <p>{{wrestler.weight}} Lbs</p>
           <p>{{wrestler.height}} Ft</p>
-          <p>{{wrestler.signature}} Ft</p>
-          </div>
+          <p>{{wrestler.signature}}</p>
+          {% if wrestler.author == request.user %}
+          <button><a href="/edit/{{wrestler.id}}">Edit</a></button>
+          <button><a href="/delete/{{wrestler.id}}">Delete</a></button>
+          {% endif %}
+          <hr>
 
-
-          <div class="media-body">
-          </div>
+         
     {% endfor %}
   
 

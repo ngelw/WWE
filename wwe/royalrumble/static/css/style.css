@@ -1,3 +1,19 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 200%;
+    z-index: 1000;  /* Ensures the navbar appears above other content */
+    background-color: #333;  /* Example background color */
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Adds a shadow for separation */
+}
+
+/* Add padding to the content below the navbar to avoid overlap */
+body {
+    padding-top: 60px; /* Adjust based on navbar height */
+}
+
 body {
     background-color: black;
     color: white;
@@ -5,14 +21,14 @@ body {
 
 h1 {
     text-align: center;
-    color: red;
+    color: rgb(0, 0, 0);
     margin-top: 20px;
 }
 
 .nav-pills {
-    --bs-nav-link-color: red;
+    --bs-nav-link-color: rgb(0, 0, 0);
     --bs-nav-pills-link-active-color: black;
-    --bs-nav-pills-link-active-bg: red;
+    --bs-nav-pills-link-active-bg: rgb(0, 0, 0);
 }
 
 .nav-item button {
@@ -20,7 +36,7 @@ h1 {
 }
 
 div {
-    color: red;
+    color: rgb(0, 0, 0);
 }
 
 * {
@@ -45,83 +61,25 @@ body {
     padding: 0;
 }
 
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #f2f2f2;
+  }
+  
+  h1 {
     color: #333;
-}
-
-.signup-container {
-    background-color: #fff;
-    width: 350px;
-    padding-left: 200px;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.signup-container h2 {
     text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    padding-left: 200px;
-
-}
-
-.signup-container form {
-    display: flex;
-    flex-direction: column;
-}
-
-.signup-container label {
-    font-size: 0.9em;
-    margin-bottom: 5px;
-}
-
-.signup-container input[type="text"],
-.signup-container input[type="email"],
-.signup-container input[type="password"] {
-    padding: 10px;
-    padding-left: 200px;
-
-    font-size: 1em;
-    border: 1px solid #ccc;
+  }
+  
+  p {
+    color: #555;
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+  img {
+    display: block;
+    margin: 0 auto;
     border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-.signup-container input[type="submit"] {
-    padding-left: 200px;
-
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.signup-container input[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-.signup-container .signin-link {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 0.9em;
-}
-
-.signup-container .signin-link a {
-    color: #4CAF50;
-    text-decoration: none;
-}
-
-.signup-container .signin-link a:hover {
-    text-decoration: underline;
-}
+  }

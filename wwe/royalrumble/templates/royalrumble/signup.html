@@ -2,15 +2,23 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/signin.css' %}">
 
 {% endblock style %}
 {% block content %}
+<br>
+{% for message in messages %}
+<div class="alert alert-primary" role="alert">
+    {{message}}
+  </div>
+{% endfor %}
 <div class="signup-container">
     <h2>Create Account</h2>
-    <form action="/signup" method="POST">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required><br><br>
+    <form action="/signin/" method="POST">
+        {% csrf_token %}
+
+        <label for="name">Full Name{{wrestler.name}}</label>
+        <input type="text" id="name" name="name" placeholder = "{{wrestler.name}}" required><br><br>
 
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required><br><br>
@@ -19,9 +27,9 @@
         <input type="password" id="password" name="password" required><br><br>
 
         <label for="confirm_password">Confirm Password</label>
-        <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+        <input type="password" id="confirm_password" name="c_pw" required><br><br>
 
-        <input type="submit" value="Sign Up"><br><br>
+        <input type="submit" value="Sign in"><br><br>
     </form>
     <div class="signin-link">
         <p>Already have an account? <a href="/signin">Sign in here</a></p>
