@@ -13,11 +13,13 @@ def home(request):
         'wrestler':wrestler,
     }
     return render(request, 'royalrumble/index.html',context)
-def login(request):
+def u_login(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == 'POST':
-        email = request.POST.get('email')
+        username = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(request,email=email,password=password)
+        user = authenticate(request,username=username,password=password)
         if user is not None:
             login(request,user)
             messages.success(request, "Logged in successfully!")
@@ -28,10 +30,15 @@ def login(request):
             return redirect(login)
     return render(request,'royalrumble/login.html')
 def u_logout(request):
-    logout(request)
-    return redirect('login')
+    if request.user.is_authenticated:
+        logout(request)
+        return redirect('login')
+    else:
+        return redirect('login')
 
 def signup(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method=='POST':
         username = request.POST.get('name')
         email = request.POST.get('email')
@@ -53,18 +60,22 @@ def signup(request):
 
     return render(request,'royalrumble/signup.html')
 def upload(request):
-    if request.method=='POST':
-        name = request.POST.get('name')
-        weight = request.POST.get('weight')
-        height = request.POST.get('height')
-        signature = request.POST.get('signature')
-        image = request.FILES.get('image')
+    if request.user.is_authenticated:
+        if request.method=='POST':
+            name = request.POST.get('name')
+            weight = request.POST.get('weight')
+            height = request.POST.get('height')
+            signature = request.POST.get('signature')
+            image = request.FILES.get('image')
 
-        wrestler = Wrestlers(name=name, weight=weight, height=height, signature=signature, image=image,author = request.user)
-        wrestler.save()
-        messages.success(request, "Wrestler information uploaded successfully, You wanna upload another? :)!")
-        return redirect(upload)
-    return render(request, 'royalrumble/upload.html')
+            wrestler = Wrestlers(name=name, weight=weight, height=height, signature=signature, image=image,author = request.user)
+            wrestler.save()
+            messages.success(request, "Wrestler information uploaded successfully, You wanna upload another? :)!")
+            return redirect(upload)
+        return render(request, 'royalrumble/upload.html')
+    else:
+        return redirect('login')
+
 def edit(request, pk ):
     wrestler = Wrestlers.objects.get(id=pk)
     if request.method=='POST':
